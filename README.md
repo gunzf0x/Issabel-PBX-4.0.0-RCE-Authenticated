@@ -2,11 +2,8 @@
 
 ## Description
 
-"A vulnerability was found in Issabel PBX 4.0.0. It has been rated as critical. 
-This issue affects some unknown processing of the file `/index.php?menu=asterisk_cli` of the component Asterisk-Cli. 
-The manipulation of the argument Command leads to os command injection. The attack may be initiated remotely. 
-The exploit has been disclosed to the public and may be used. The associated identifier of this vulnerability is VDB-252251. 
-NOTE: The vendor was contacted early about this disclosure but did not respond in any way."
+Issabel PBX 4.0.0 allows a logged in user to upload files using 'xmldoc' and 'dump' command. 
+This allows to execute remote commands based on the name of the uploaded files abusing 'restore.php'
 
 
 This PoC script is based on [this PoC Video](https://drive.google.com/file/d/10BYLQ7Rk4oag96afLZouSvDDPvsO7SoJ/view?usp=drive_link).
@@ -31,6 +28,7 @@ This script was tested on `Issabel PBX 4.0.0`.
 More CVE-2024-0986 info:
 - [https://nvd.nist.gov/vuln/detail/CVE-2024-0986](https://nvd.nist.gov/vuln/detail/CVE-2024-0986)
 - [https://github.com/advisories/GHSA-v9pc-9fc9-4ff8](https://github.com/advisories/GHSA-v9pc-9fc9-4ff8)
+- [https://www.opencve.io/cve/CVE-2024-0986](https://www.opencve.io/cve/CVE-2024-0986)
 
 
 ## Disclaimer
