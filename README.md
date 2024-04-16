@@ -1,8 +1,8 @@
 # Issabel PBX 4.0.0 Remote Code Execution - Authenticated (CVE-2024-0986)
 
-## Description
+## Description/Summary
 
-Issabel PBX 4.0.0 allows a logged in user to upload files using 'xmldoc' and 'dump' command. 
+Issabel PBX 4.0.0 allows a logged in user to use `asterisk_cli` console to create files with 'xmldoc' and `dump` commands. 
 This allows to execute remote commands based on the name of the uploaded files abusing 'restore.php'
 
 
