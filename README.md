@@ -17,7 +17,7 @@ $ python3 Issabel_PBX_Authenticated_RCE.py -u <user> -p <password> -t <ip-addres
 
 For example:
 ```shell-session
-$ python3 Issabel_PBX_Authenticated_RCE.py -u 'pedrito' -p 'meelectrocutaste' -t 'https://10.10.10.10' -c 'id'
+$ python3 Issabel_PBX_Authenticated_RCE.py -u 'johncena' -p 'ucantseem3' -t 'https://10.10.10.10' -c 'id'
 ```
 
 ![PoC image](images/PoC.png)
@@ -25,7 +25,7 @@ $ python3 Issabel_PBX_Authenticated_RCE.py -u 'pedrito' -p 'meelectrocutaste' -t
 ## Notes:
 
 - This will create a file located at `/var/www/backup` called `x|<command>`. It is suggested to remove all those files after testing.
-- The script may fail with commands that are too long.
+- Commands that are too long might not be executed.
 
 ## More info:
 This script was tested on `Issabel PBX 4.0.0`.
