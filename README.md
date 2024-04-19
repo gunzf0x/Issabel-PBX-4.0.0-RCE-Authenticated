@@ -22,12 +22,12 @@ $ python3 Issabel_PBX_Authenticated_RCE.py -u 'johncena' -p 'ucantseem3' -t 'htt
 
 ![PoC image](images/PoC.png)
 
-## Notes:
+## Notes
 
 - This will create a file located at `/var/www/backup` called `x|<command>`. It is suggested to remove all those files after testing.
 - Commands that are too long might not be executed.
 
-## More info:
+## More info
 This script was tested on `Issabel PBX 4.0.0`.
 
 More CVE-2024-0986 info:
