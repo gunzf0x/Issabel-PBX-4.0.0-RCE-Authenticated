@@ -1,4 +1,4 @@
-# Issabel PBX 4.0.0 Remote Code Execution - Authenticated (CVE-2024-0986)
+# Issabel PBX 4.0.0 Remote Code Execution (Authenticated) -- CVE-2024-0986
 
 ## Description/Summary
 
