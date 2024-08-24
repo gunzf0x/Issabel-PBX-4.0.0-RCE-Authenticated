@@ -116,9 +116,9 @@ def check_if_https_in_url(url: str, port: int)->str:
 
 
 def injection_file_failed(response_text: str):
-    # Search for the words 'Command' and 'failed.'. This might indicate that the payload could not be uploaded
+    # Search for the words 'Command' and 'failed'. This might indicate that the payload could not be uploaded
     for line in response_text.split('\n'):
-        if 'Command' and 'failed.' in line:
+        if ('Command' in line) and ('failed' in line):
             return True, line
     return False, None
 
